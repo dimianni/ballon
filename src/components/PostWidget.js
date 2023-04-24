@@ -2,7 +2,8 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import moment from "moment"
 
-export default function PostWidget({ slug }) {
+
+export default function PostWidget({ slug, categories }) {
 
     const [relatedPosts, setRelatedPosts] = useState([])
 
@@ -10,13 +11,25 @@ export default function PostWidget({ slug }) {
     const getRecentPosts = async () => {
         let response = await fetch('api/recentposts')
         let { data } = await response.json()
-        console.log(data);
+        setRelatedPosts(data)
+    }
+
+    const getSimilarPosts = async () => {
+        let response = await fetch('../api/similarposts', {
+            method: "POST",
+            body: JSON.stringify({slug: slug, categories: categories}),
+            headers: { "Content-Type": "application/json" }
+        })
+        let {data} = await response.json()
+        // console.log(data);
         setRelatedPosts(data)
     }
 
     useEffect(() => {
         if(!slug){
             getRecentPosts()
+        } else {
+            getSimilarPosts()
         }
     }, [slug])
 
