@@ -18,7 +18,7 @@ export default function Post({ post }) {
     )
 }
 
-export async function getStaticProps(pageInfo) {
+export async function getServerSideProps(pageInfo) {
 
     const data = await getPostDetails(pageInfo.params.slug)
     return {
@@ -28,19 +28,20 @@ export async function getStaticProps(pageInfo) {
     }
 }
 
+// If using getStaticProps
 // define a list of paths to be statically generated
-export async function getStaticPaths() {
-    const posts = await getPosts()
+// export async function getStaticPaths() {
+//     const posts = await getPosts()
 
-    return {
-        // [ { params: { slug: 'xavi-barca' } }, ...]
-        paths: posts.map(post => {
-            const slug = post.node.slug
-            return {
-                // slug --> "slug: 'juventus-points-back'"
-                params: { slug }
-            }
-        }),
-        fallback: true
-    }
-}
+//     return {
+//         // [ { params: { slug: 'xavi-barca' } }, ...]
+//         paths: posts.map(post => {
+//             const slug = post.node.slug
+//             return {
+//                 // slug --> "slug: 'juventus-points-back'"
+//                 params: { slug }
+//             }
+//         }),
+//         fallback: true
+//     }
+// }
