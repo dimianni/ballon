@@ -119,3 +119,36 @@ export const getPostDetails = async (slug) => {
 
     return response.post
 }
+
+export const submitComment = async (commentDetails) => {
+
+    try {
+        const result = fetch('/api/submitcomment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(commentDetails),
+        })
+
+        return result.json()
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export const getComments = async (slug) => {
+    try {
+        const result = await fetch('/api/getcomments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ slug: slug }),
+        })
+        return result.json()
+    } catch (error) {
+        console.log(error);
+    }
+}

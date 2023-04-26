@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         grey: { 500: '#333333', 900: '#292929' },
-        pink: '#f0725c'
+        pink: { 500: '#f0725c', 900: '#ec3046' }
       }
     },
     container: {

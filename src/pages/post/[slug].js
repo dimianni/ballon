@@ -1,15 +1,19 @@
 import { getPostDetails, getPosts } from "@/services"
 import PostDetails from "@/components/PostDetails"
 import { PostWidget } from "@/components"
+import CommentsForm from "@/components/CommentsForm";
+import Comments from "@/components/Comments";
 
 
 export default function Post({ post }) {
-    console.log(post);
+    // console.log(post);
     return (
         <main className='container py-12'>
             <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
                 <div className="posts lg:col-span-8 col-span-1 grid grid-cols-1 gap-8">
                     <PostDetails post={post} />
+                    <CommentsForm slug={post.slug} />
+                    <Comments slug={post.slug} />
                 </div>
                 <aside className="side-menu lg:col-span-4 col-span-1">
                     <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
