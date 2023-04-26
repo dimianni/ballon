@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.post-text p,
+ul {
+    margin-bottom: 12px;
+}
+
+.swiper-cont{
+    position: relative;
+}
+.myswiperbtns {
+    position: absolute;
+    z-index: 1;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px;
+    background-color: #f0725c;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.2s;
+    top: 50%;
+    transform: translateY(-50%);
+    img {
+        width: 9px;
+        height: 13px;
+    }
+    &:hover {
+        background-color: #ec3046;
+        transition: all ease-in-out 0.2s;
+    }
+    &::after {
+        display: none;
+    }
+    &.swiper-button-prev {
+        left: 0;
+    }
+    &.swiper-button-next {
+        right: 0;
+    }
+}

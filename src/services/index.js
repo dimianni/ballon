@@ -75,6 +75,43 @@ export const getCategoryPosts = async (slug) => {
     return response.postsConnection.edges
 }
 
+export const getFeaturedPosts = async (apiEndpoint) => {
+    const query = gql`
+        query Assets {
+            postsConnection(where: {featuredPost: true}) {
+                edges {
+                    cursor
+                    node {
+                        authors {
+                            bio
+                            name
+                            id
+                            photo {
+                                url
+                            }
+                        }
+                        createdAt
+                        slug
+                        title
+                        excerpt
+                        featuredImage {
+                            url
+                        }
+                        categories {
+                            name
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `;
+
+    const result = await request(apiEndpoint, query)
+    return result.postsConnection.edges;
+
+}
+
 export const getRecentPosts = async (apiEndpoint) => {
     const query = gql`
         query Post {
