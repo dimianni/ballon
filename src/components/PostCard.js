@@ -1,8 +1,11 @@
-import moment from "moment"
 import Image from "next/image"
 import Link from "next/link"
+import CategoryLink from "@/UI/CategoryLink"
+import Time from "@/UI/Time"
 
 import time from '../../public/time.svg'
+
+
 
 export default function PostCard({ post }) {
     return (
@@ -19,9 +22,7 @@ export default function PostCard({ post }) {
                             {
                                 post.categories.map(tag => {
                                     return (
-                                        <li key={tag.slug} className="border-solid border border-white rounded-sm mr-2">
-                                            <Link className="py-1 px-2 text-sm" href={`/category/${tag.slug}`}>{tag.name}</Link>
-                                        </li> 
+                                        <CategoryLink slug={tag.slug} name={tag.name} />
                                     )
                                 })
                             }
@@ -29,10 +30,10 @@ export default function PostCard({ post }) {
                     </div>
                     <Link className="text-base" href={`/post/${post.slug}`}>{post.title}</Link>
                     <div className="meta">
-                        <time className="date flex justify-start items-center">
+                        <div className="date flex justify-start items-center">
                             <Image src={time} alt="time" width={18} height={18} />
-                            <span className="ml-1 text-sm font-light">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
-                        </time>
+                            <Time date={post.createdAt} />
+                        </div>
                         <div className="comment-number">
                             <span></span>
                         </div>

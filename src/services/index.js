@@ -95,6 +95,10 @@ export const getPostDetails = async (slug) => {
                 slug
                 authors {
                     name
+                    id
+                    photo {
+                        url
+                    }
                 }
                 publishedAt
                 content {

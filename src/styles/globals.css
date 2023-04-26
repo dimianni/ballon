@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.post-text p, ul{
+    margin-bottom: 12px;
+}
+
+/* .post-text ul{
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+.post-text ul li{
+    list-style-type: circle;
+    list-style-position: inside;
+} */

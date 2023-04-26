@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import { PostCard, PostWidget, Categories } from '@/components'
 import { getPosts } from '@/services'
 
 export default function Home({ posts }) {
 
-  // console.log(posts);
   return (
     <main className='container py-12'>
       <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
@@ -13,7 +11,6 @@ export default function Home({ posts }) {
         </div>
         <aside className="side-menu lg:col-span-4 col-span-1">
           <PostWidget />
-          {/* <Categories /> */}
         </aside>
       </section>
     </main>

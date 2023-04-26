@@ -4,10 +4,11 @@ import { PostWidget } from "@/components"
 
 
 export default function Post({ post }) {
+    console.log(post);
     return (
         <main className='container py-12'>
             <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-                <div className="posts lg:col-span-8 col-span-1 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="posts lg:col-span-8 col-span-1 grid grid-cols-1 gap-8">
                     <PostDetails post={post} />
                 </div>
                 <aside className="side-menu lg:col-span-4 col-span-1">
@@ -19,7 +20,6 @@ export default function Post({ post }) {
 }
 
 export async function getServerSideProps(pageInfo) {
-
     const data = await getPostDetails(pageInfo.params.slug)
     return {
         props: {

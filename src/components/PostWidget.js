@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import moment from "moment"
+import Time from "@/UI/Time"
 
 
 export default function PostWidget({ slug, categories }) {
@@ -34,19 +34,17 @@ export default function PostWidget({ slug, categories }) {
     }, [slug])
 
     return (
-        <div>
-            <h2>Latest News</h2>
+        <div className="bg-grey-500 p-4 rounded">
+            <h2 className="text-2xl font-semibold">{!slug ? "Latest News" : "Similar News"}</h2>
             <div>
                 <ul>
                     {
                         relatedPosts.map(post => {
                             return (
-                                <li key={post.id}>
+                                <li key={post.id} className="border-b border-grey-900 py-4 last:border-none">
                                     <article>
                                         <Link href='/'>
-                                            <time>
-                                                <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
-                                            </time>
+                                            <Time date={post.createdAt} />
                                             <h3>{post.title}</h3>
                                         </Link>
                                     </article>
