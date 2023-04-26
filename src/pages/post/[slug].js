@@ -6,7 +6,6 @@ import Comments from "@/components/Comments";
 
 
 export default function Post({ post }) {
-    // console.log(post);
     return (
         <main className='container py-12'>
             <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>

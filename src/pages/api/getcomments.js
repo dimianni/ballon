@@ -4,8 +4,6 @@ export default async function getcomments(req, res) {
 
     let data = req.body;
 
-    console.log(data);
-
     const query = gql`
         query getComments($slug: String!) {
             comments(where: {post: {slug: $slug}}) {

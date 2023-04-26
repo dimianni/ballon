@@ -12,9 +12,9 @@ export default function PostCard({ post }) {
         <article className="w-full bg-grey-500 rounded overflow-hidden">
             <div className="w-full wrapper">
                 <div className="w-full img">
-                    <a href="/" className="w-full">
+                    <Link href={`/post/${post.slug}`} className="w-full">
                         <Image className="w-full" src={post.featuredImage.url} alt={post.title} width={300} height={100} />
-                    </a>
+                    </Link>
                 </div>
                 <div className="content p-4 flex flex-col gap-4">
                     <div className="tag-list">

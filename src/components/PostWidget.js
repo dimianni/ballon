@@ -21,7 +21,6 @@ export default function PostWidget({ slug, categories }) {
             headers: { "Content-Type": "application/json" }
         })
         let {data} = await response.json()
-        // console.log(data);
         setRelatedPosts(data)
     }
 
@@ -43,7 +42,7 @@ export default function PostWidget({ slug, categories }) {
                             return (
                                 <li key={post.id} className="border-b border-grey-900 py-4 last:border-none">
                                     <article>
-                                        <Link href='/'>
+                                        <Link href={`/post/${post.slug}`}>
                                             <Time date={post.createdAt} />
                                             <h3>{post.title}</h3>
                                         </Link>
