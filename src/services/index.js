@@ -142,7 +142,7 @@ export const getRecentPosts = async (apiEndpoint) => {
 
 export const getSimilarPosts = async (apiEndpoint, slug, categories) => {
     const query = gql`
-        query GetPostDetails($slug: String!, $categories: [String!]) {
+        query GetSimilarPosts($slug: String!, $categories: [String!]) {
             posts(
                 where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
                 last: 3
@@ -179,6 +179,7 @@ export const getPostDetails = async (slug) => {
                         url
                     }
                 }
+                excerpt
                 publishedAt
                 content {
                     html

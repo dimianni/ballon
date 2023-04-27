@@ -2,10 +2,10 @@ import Image from "next/image"
 import Link from "next/link"
 import {CategoryLink, Time} from "@/UI"
 
+// https://www.svgrepo.com/svg/501501/clock
 import time from '../../public/time.svg'
+// https://www.svgrepo.com/svg/501513/comment
 import comment from '../../public/comment.svg'
-
-
 
 export default function PostCard({ post }) {
     return (

@@ -1,9 +1,25 @@
 import { getPostDetails } from "@/services"
 import { PostWidget, PostDetails, Comments, CommentsForm } from "@/components"
+import Head from "next/head";
 
 export default function Post({ post }) {
+    console.log(post);
     return (
         <main className='container py-12'>
+            <Head>
+                <title>TFB | { post.title }</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content={post.excerpt} />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={`TFB | ${ post.title }`} />
+                <meta property="og:site_name" content="TFB | Football News" />
+                <meta property="og:image" content={post.featuredImage.url} />
+                <meta property="og:description" content={post.excerpt} />
+
+                {/* To be set */}
+                <meta name="keywords" content="" />
+
+            </Head>
             <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
                 <div className="posts lg:col-span-8 col-span-1 grid grid-cols-1 gap-8">
                     <PostDetails post={post} />
