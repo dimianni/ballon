@@ -1,10 +1,16 @@
 import { PostCard, PostWidget, Categories } from '@/components'
 import Hero from '@/components/Hero';
 import { getPosts } from '@/services'
+import Head from 'next/head';
 
 export default function Home({ posts }) {
   return (
     <main>
+      <Head>
+        <title>TFB | Football News</title> 
+        <meta name="description" content="Football News, Live Scores, Results & Transfers" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Hero />
       <div className="container">
         <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
