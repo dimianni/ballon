@@ -37,8 +37,7 @@ function CommentsForm({ slug }) {
 
         submitComment(commentObj)
             .then(res => {
-                console.log(res);
-
+                setError(false)
                 setSuccess(true)
                 setTimeout(() => {
                     setSuccess(false)

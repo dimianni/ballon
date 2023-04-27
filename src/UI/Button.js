@@ -2,7 +2,7 @@ import cls from "classnames"
 import { useMemo } from "react";
 
 
-export default function Button({ color, size, disabled, onclick, children }) {
+export default function Button({ color, size, disabled, onClick, children }) {
 
     // "classnames" will take the key which returned 'true'
     const buttonSizes = useMemo(() => {
@@ -23,7 +23,7 @@ export default function Button({ color, size, disabled, onclick, children }) {
     });
 
     return (
-        <button className={cls("flex items-center transition rounded", buttonClasses, buttonSizes)} onClick={onclick}>
+        <button className={cls("flex items-center transition rounded", buttonClasses, buttonSizes)} onClick={onClick}>
             {children}
         </button>
     )
