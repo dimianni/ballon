@@ -1,4 +1,4 @@
-import Time from "@/UI/Time";
+import { Time } from "@/UI";
 import { getComments } from "@/services"
 import { useEffect, useState } from "react"
 

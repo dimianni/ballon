@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import CategoryLink from "@/UI/CategoryLink"
-import Time from "@/UI/Time"
+import {CategoryLink, Time} from "@/UI"
 
 import time from '../../public/time.svg'
 import comment from '../../public/comment.svg'

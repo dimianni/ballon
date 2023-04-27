@@ -1,8 +1,7 @@
 import CategoryLink from "@/UI/CategoryLink";
-import Time from "@/UI/Time";
+import { Time } from "@/UI";
 import Image from "next/image";
 import DOMPurify from "isomorphic-dompurify";
-
 
 export default function PostDetails({ post }) {
 

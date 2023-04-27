@@ -1,5 +1,4 @@
-import { PostCard, PostWidget, Categories } from '@/components'
-import Hero from '@/components/Hero';
+import { PostCard, PostWidget, Hero } from '@/components'
 import { getPosts } from '@/services'
 import Head from 'next/head';
 

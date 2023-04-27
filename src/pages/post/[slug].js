@@ -1,9 +1,5 @@
-import { getPostDetails, getPosts } from "@/services"
-import PostDetails from "@/components/PostDetails"
-import { PostWidget } from "@/components"
-import CommentsForm from "@/components/CommentsForm";
-import Comments from "@/components/Comments";
-
+import { getPostDetails } from "@/services"
+import { PostWidget, PostDetails, Comments, CommentsForm } from "@/components"
 
 export default function Post({ post }) {
     return (

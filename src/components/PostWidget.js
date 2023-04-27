@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import Time from "@/UI/Time"
-
+import { Time } from "@/UI"
 
 export default function PostWidget({ slug, categories }) {
 

@@ -1,4 +1,4 @@
-import { PostCard, PostWidget, Categories } from '@/components'
+import { PostCard } from '@/components'
 import { getCategoryPosts } from '@/services';
 
 export default function ByCategory({ posts }){

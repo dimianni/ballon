@@ -1,6 +1,6 @@
 import { submitComment } from "@/services"
 import { useState } from "react"
-
+import { Button } from "@/UI"
 
 const initValues = {
     name: "",
@@ -60,7 +60,9 @@ function CommentsForm({ slug }) {
                     <textarea onChange={handleFormChange} value={formContent.message} className="bg-grey-900 py-2 px-3" placeholder="Join the discussion..." name="message" id="message" rows="5"></textarea>
                 </div>
                 <div className="submit flex items-center justify-between">
-                    <button className="mt-2 bg-pink-500 hover:bg-pink-900 transition py-2 px-3 rounded" onClick={handleFormSend}>Comment</button>
+                    <Button size="md" color="pink" onClick={handleFormSend}>
+                        <p>Comment</p> 
+                    </Button>
                     {error && <p className="text-red-600">All fields are mandatory!</p>}
                     {success && <p className="text-green-600">Comment submitted for review!</p>}
                 </div>
