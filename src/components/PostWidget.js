@@ -7,26 +7,32 @@ export default function PostWidget({ slug, categories }) {
 
     const [relatedPosts, setRelatedPosts] = useState([])
 
-    // PostWidget is a component (not a page), so cannot use getStaticProps
-    const getRecentPosts = async () => {
-        let response = await fetch('api/recentposts')
+    const getPostsComments = async () => {
+        let response = await fetch('api/postscomments')
         let { data } = await response.json()
-        setRelatedPosts(data)
+
+        // Sorting posts by the number of comments (DESC)
+        data.sort((a, b) => b.comments.length - a.comments.length)
+
+        // Getting first five elements of the array
+        let topFive = data.slice(0, 5)
+
+        setRelatedPosts(topFive)
     }
 
     const getSimilarPosts = async () => {
         let response = await fetch('../api/similarposts', {
             method: "POST",
-            body: JSON.stringify({slug: slug, categories: categories}),
+            body: JSON.stringify({ slug: slug, categories: categories }),
             headers: { "Content-Type": "application/json" }
         })
-        let {data} = await response.json()
+        let { data } = await response.json()
         setRelatedPosts(data)
     }
 
     useEffect(() => {
-        if(!slug){
-            getRecentPosts()
+        if (!slug) {
+            getPostsComments()
         } else {
             getSimilarPosts()
         }
@@ -34,7 +40,7 @@ export default function PostWidget({ slug, categories }) {
 
     return (
         <div className="bg-grey-500 p-4 rounded">
-            <h2 className="text-2xl font-semibold">{!slug ? "Latest News" : "Similar News"}</h2>
+            <h2 className="text-2xl font-semibold">{!slug ? "Popular News" : "Similar News"}</h2>
             <div>
                 <ul>
                     {

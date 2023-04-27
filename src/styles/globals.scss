@@ -2,20 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.post-text p,
-ul {
-    margin-bottom: 12px;
+.post-text {
+    & p,
+    ul {
+        margin-bottom: 12px;
+    }
 }
 
-.swiper-cont{
+.swiper-cont {
     position: relative;
 }
 .myswiperbtns {
     position: absolute;
     z-index: 1;
     width: 32px !important;
-    height: 32px !important;
-    border-radius: 4px;
+    height: 54px !important;
     background-color: #f0725c;
     cursor: pointer;
     display: flex;

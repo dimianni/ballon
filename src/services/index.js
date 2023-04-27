@@ -5,7 +5,50 @@ const graphqlAPI = process.env.GRAPHCMS_ENDPOINT
 export const getPosts = async () => {
     const query = gql`
         query Assets {
-            postsConnection(orderBy: publishedAt_DESC) {
+            postsConnection(
+                last: 10
+                orderBy: createdAt_DESC
+            ) {
+                edges {
+                    cursor
+                    node {
+                        authors {
+                            bio
+                            name
+                            id
+                            photo {
+                                url
+                            }
+                        }
+                        createdAt
+                        slug
+                        title
+                        excerpt
+                        featuredImage {
+                            url
+                        }
+                        categories {
+                            name
+                            slug
+                        }
+                        comments {
+                            id
+                        }
+                    }
+                }
+            }
+        }
+    `;
+
+    const result = await request(graphqlAPI, query)
+
+    return result.postsConnection.edges;
+}
+
+export const getCategoryPosts = async (slug) => {
+    const query = gql`
+        query GetCategoryPost($slug: String!) {
+            postsConnection(where: {categories_some: {slug: $slug}}) {
                 edges {
                     cursor
                     node {
@@ -33,43 +76,6 @@ export const getPosts = async () => {
             }
         }
     `;
-
-    const result = await request(graphqlAPI, query)
-
-    return result.postsConnection.edges;
-}
-
-export const getCategoryPosts = async (slug) => {
-    const query = gql`
-    query GetCategoryPost($slug: String!) {
-      postsConnection(where: {categories_some: {slug: $slug}}) {
-        edges {
-          cursor
-          node {
-            authors {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-  `;
 
     const response = await request(graphqlAPI, query, { slug })
     return response.postsConnection.edges
@@ -221,6 +227,30 @@ export const getComments = async (slug) => {
             body: JSON.stringify({ slug: slug }),
         })
         return result.json()
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getPostsComments = async (apiEndpoint) => {
+
+    const query = gql`
+        query GetPostsComments {
+            posts{
+                id
+                slug
+                title
+                createdAt
+                comments {
+                    id
+                }
+            }
+        }
+    `;
+
+    try {
+        const response = await request(apiEndpoint, query)
+        return response.posts
     } catch (error) {
         console.log(error);
     }

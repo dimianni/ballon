@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper';
 import { useState, useEffect, useRef } from 'react';
-import PostCard from './PostCard';
 
 import arrowPrev from "../../public/slick-arrow-prev.svg"
 import arrowNext from "../../public/slick-arrow-next.svg"
+import FeaturedPost from './FeaturedPost';
 
 
 export default function Hero() {
@@ -37,10 +37,10 @@ export default function Hero() {
     }, [swiper]);
 
     return (
-        <div className="mb-12">
+        <section className="hero mb-12 border-b-4 border-pink-500">
             <ul className='swiper-cont w-full'>
                 <Swiper
-                    className='w-4/5 mx-auto'
+                    className='w-full'
                     modules={[Navigation, Autoplay]}
                     spaceBetween={50}
                     slidesPerView={1}
@@ -55,7 +55,7 @@ export default function Hero() {
                     {featuredposts?.map(featuredpost => {
                         return (
                             <SwiperSlide key={featuredpost.node.slug}>
-                                <PostCard post={featuredpost.node} />
+                                <FeaturedPost post={featuredpost.node} />
                             </SwiperSlide>
                         )
                     })}
@@ -69,6 +69,6 @@ export default function Hero() {
                 </div>
 
             </ul>
-        </div>
+        </section>
     )
 }
