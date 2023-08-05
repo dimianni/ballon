@@ -7,12 +7,12 @@ export default function Post({ post }) {
     return (
         <main className='container py-12'>
             <Head>
-                <title>TFB | { post.title }</title>
+                <title>Ballon | { post.title }</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content={post.excerpt} />
                 <meta property="og:type" content="article" />
-                <meta property="og:title" content={`TFB | ${ post.title }`} />
-                <meta property="og:site_name" content="TFB | Football News" />
+                <meta property="og:title" content={`Ballon | ${ post.title }`} />
+                <meta property="og:site_name" content="Ballon | Football News" />
                 <meta property="og:image" content={post.featuredImage.url} />
                 <meta property="og:description" content={post.excerpt} />
 

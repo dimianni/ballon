@@ -9,7 +9,7 @@ export default function Header(){
             <div className="container">
                 <nav className="w-full flex justify-center items-center">
                     <Link href="/">
-                        <Image src={logo} alt="TheFootballBlog logo" width={120} height={25} />
+                        <Image src={logo} alt="Ballon logo" width={120} height={25} />
                     </Link>
                 </nav>
             </div>

@@ -6,20 +6,20 @@ export default function Home({ posts }) {
   return (
     <main>
       <Head>
-        <title>TFB | Football News</title> 
+        <title>Ballon | Football News</title> 
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="The latest football news, live scores, results, rumours, transfers, fixtures, tables and player profiles from around the world, including UEFA Champions League." />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="TFB | Football News" />
-        <meta property="og:site_name" content="TFB | Football News" />
-        <meta property="og:image" content="/thefootballblog.png" />
+        <meta property="og:title" content="Ballon | Football News" />
+        <meta property="og:site_name" content="Ballon | Football News" />
+        <meta property="og:image" content="/ballon.png" />
         <meta property="og:description"
           content="The latest football news, live scores, results, rumours, transfers, fixtures, tables and player profiles from around the world, including UEFA Champions League." />
         
         {/* To be set */}
         <meta name="keywords" content="" />
-
       </Head>
+
       <Hero />
       <div className="container">
         <section className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
