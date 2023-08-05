@@ -5,6 +5,7 @@ import { useMemo } from "react";
 export default function Button({ color, size, disabled, onClick, children }) {
 
     // "classnames" will take the key which returned 'true'
+    // when declare an object key with quotes, it is treated as a string literal
     const buttonSizes = useMemo(() => {
         return {
             "py-2 px-3.5 gap-x-2 text-sm": size === "sm",

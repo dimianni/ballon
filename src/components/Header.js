@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from '../../public/tfb_logo.svg'
+import logo from '../../public/ballon_logo.svg'
 
 export default function Header(){
     return (
@@ -9,7 +9,7 @@ export default function Header(){
             <div className="container">
                 <nav className="w-full flex justify-center items-center">
                     <Link href="/">
-                        <Image src={logo} alt="TheFootballBlog logo" width={80} height={20} />
+                        <Image src={logo} alt="TheFootballBlog logo" width={120} height={25} />
                     </Link>
                 </nav>
             </div>
